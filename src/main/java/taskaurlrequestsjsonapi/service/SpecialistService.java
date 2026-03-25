@@ -7,7 +7,6 @@ import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.Comparator;
 import java.util.List;
-
 import taskaurlrequestsjsonapi.dto.CommentDto;
 import taskaurlrequestsjsonapi.dto.PostDto;
 import taskaurlrequestsjsonapi.dto.SpecialistDto;
@@ -120,7 +119,7 @@ public class SpecialistService {
         // get comments on post - GET /posts/{postId}/comments
         // сделает: GET /posts/10/comments
         String commentsJson = http.sendGet(
-                POSTS_URL+"/" + postId + "/comments"
+                POSTS_URL + "/" + postId + "/comments"
         );
 
         Type type = TypeToken
@@ -130,7 +129,6 @@ public class SpecialistService {
         List<CommentDto> comments = gson.fromJson(commentsJson, type);
 
         String jsonOutput = gson.toJson(comments);
-
 
         // записать файл
         // создаём файл: user-1-post-10-comments.json в корне проекта.
