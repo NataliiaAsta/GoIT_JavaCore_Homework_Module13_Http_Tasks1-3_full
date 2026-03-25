@@ -17,6 +17,8 @@ import taskaurlrequestsjsonapi.http.HttpClientUtil;
 public class SpecialistService {
     private static final String BASE_URL =
             "https://jsonplaceholder.typicode.com/users";
+    private static final String POSTS_URL =
+            "https://jsonplaceholder.typicode.com/posts";
 
     private HttpClientUtil http = new HttpClientUtil();
     private Gson gson = new Gson();
@@ -118,7 +120,7 @@ public class SpecialistService {
         // get comments on post - GET /posts/{postId}/comments
         // сделает: GET /posts/10/comments
         String commentsJson = http.sendGet(
-                BASE_URL + "/posts/" + postId + "/comments"
+                POSTS_URL+"/" + postId + "/comments"
         );
 
         Type type = TypeToken
